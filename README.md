@@ -180,6 +180,27 @@ sudo systemctl status httpd
 3. **Confirm Deletion**
    Confirm by typing `Y` when prompted.
 
+## for Chef Client Architecture 
+```
+sudo cp client.pem validation.pem
+```
+// Copy EC2 url in knife.rb file
+```
+id
+ls -l /etc/chef/client.pem
+sudo chmod 400 /etc/chef/client.pem
+sudo chown ec2-user:ec2-user /etc/chef/client.pem
+sudo chown ec2-user:ec2-user /etc/chef/validation.pem
+```
+```
+sudo nano /etc/chef/client.pem
+sudo nano /etc/chef/validation.pem
+```
+```
+sudo systemctl restart chef-client
+```
+   
+
 ### Summary
 
 This configuration guide helps you set up `knife` on Amazon Linux 2023, configure client and validation keys, and manage an Apache2 cookbook. Adjust paths and configurations based on your specific environment and requirements.
