@@ -29,6 +29,10 @@ depends 'apt', '~> 7.1.1' # If using an Ubuntu-based system
 #### Install Apache2
 
 Edit the `default.rb` file in `cookbooks/apache2/recipes/` to include Apache2 installation and basic configuration:
+```
+cd cookbooks/apache2/recipes/
+sudo nano default.rb 
+```
 ```ruby
 # Install Apache2 package (httpd for Red Hat-based systems)
 package 'httpd' do
@@ -57,8 +61,11 @@ end
 #### Add Apache2 Configuration Template
 
 To customize Apache2 configurations, you can use templates. Create a template file for the Apache2 configuration in `cookbooks/apache2/templates/default/`.
-
 For example, create a configuration template `apache2.conf.erb`:
+```
+cd apache2/templates/default/apache2.conf.erb
+sudo nano apache2.conf.erb 
+```
 ```erb
 # Template for Apache2 configuration
 ServerAdmin webmaster@localhost
@@ -98,7 +105,9 @@ sudo chef-client --local-mode --runlist 'recipe[apache2::default]'
 ### 5. Verify Installation
 
 Check that Apache2 is running and serving content by visiting the public IP of your node in a web browser. You should see the "Apache2 is working!" message.
-
+```
+sudo systemctl status httpd
+```
 ### Summary
 
 This guide covers creating an Apache2 cookbook, managing configurations, and setting up Apache2 on a Chef server. Adjust configurations and templates based on your specific needs and environment.
