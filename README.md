@@ -108,6 +108,49 @@ Check that Apache2 is running and serving content by visiting the public IP of y
 ```
 sudo systemctl status httpd
 ```
+
+To delete a cookbook from your Chef server, you need to use the `knife` command-line tool. Here’s how to do it:
+
+### Deleting a Cookbook from Chef Server
+
+1. **List Cookbooks**
+
+   To verify the cookbook you want to delete, list all cookbooks on your Chef server:
+   ```bash
+   knife cookbook list
+   ```
+
+2. **Delete the Cookbook**
+
+   Use the `knife cookbook delete` command to remove the cookbook. Replace `COOKBOOK_NAME` with the name of the cookbook you wish to delete:
+   ```bash
+   knife cookbook delete COOKBOOK_NAME VERSION
+   ```
+
+   For example, to delete version `0.1.0` of a cookbook named `apache2`:
+   ```bash
+   knife cookbook delete apache2 0.1.0
+   ```
+
+   If you want to delete all versions of the cookbook, you can use:
+   ```bash
+   knife cookbook delete apache2 --all
+   ```
+
+3. **Confirm Deletion**
+
+   When prompted, confirm the deletion by typing `Y` (yes). 
+
+### Additional Considerations
+
+- **Deleting from Local Directory**: The above steps only remove the cookbook from the Chef server. If you also want to delete the cookbook from your local directory, you need to manually remove the cookbook files from your `cookbooks/` directory:
+  ```bash
+  rm -rf cookbooks/apache2
+  ```
+
+- **Roles and Environments**: If the cookbook is assigned to any roles or environments, you may need to update those roles and environments to remove references to the cookbook before it can be fully removed from the server.
+
+By following these steps, you can cleanly remove a cookbook from your Chef server and ensure it is no longer available for use in your Chef configurations.
 ### Summary
 
 This guide covers creating an Apache2 cookbook, managing configurations, and setting up Apache2 on a Chef server. Adjust configurations and templates based on your specific needs and environment.
