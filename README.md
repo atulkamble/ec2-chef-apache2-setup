@@ -3,6 +3,29 @@ To create an Apache2 cookbook using Chef, you'll need to follow a structured app
 
 Here’s how to configure `knife` credentials and handle related tasks for Amazon Linux 2023 based on your provided Chef code and additional instructions:
 
+### EC2 - Chef Configuration
+
+Comprehensive guide for configuring an EC2 instance using Chef to install and manage Nginx. Follow the steps below to set up the Chef environment, create a cookbook, and deploy Nginx on an EC2 instance.
+
+#### 1. Create Project Folder
+
+Initialize a new Chef repository with the following command:
+```bash
+chef generate repo myproject
+```
+
+Navigate to the project directory:
+```bash
+cd myproject
+```
+
+Change to the cookbooks directory:
+```bash
+cd cookbooks/
+cd ..
+```
+
+
 ### Configure Knife Credentials for Amazon Linux 2023
 
 #### 1. Create and Configure `knife.rb`
