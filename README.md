@@ -181,6 +181,10 @@ depends 'apt', '~> 7.1.1' # If using an Ubuntu-based system
 ```
 
 #### 3. Configure Recipes
+```
+cd cookbooks/apache2/recipes/
+sudo nano default.rb 
+```
 
 Edit `default.rb`:
 ```ruby
