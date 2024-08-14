@@ -31,13 +31,13 @@ To clone the repository from GitHub, follow these instructions:
 2. **Clone the repository using Git.** Open your terminal and run the following command:
 
    ```bash
-   git clone https://github.com/atulkamble/project.git
+   git clone https://github.com/atulkamble/ec2-chef-apache2-setup.git
    ```
 
 3. **Navigate into the cloned repository directory:**
 
    ```bash
-   cd project
+   cd ec2-chef-apache2-setup
    ```
 
 
