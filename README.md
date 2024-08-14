@@ -3,20 +3,89 @@ To create an Apache2 cookbook using Chef, you'll need to follow a structured app
 
 Here’s how to configure `knife` credentials and handle related tasks for Amazon Linux 2023 based on your provided Chef code and additional instructions:
 
-### EC2 - Chef Configuration
 
-Comprehensive guide for configuring an EC2 instance using Chef to install and manage Nginx. Follow the steps below to set up the Chef environment, create a cookbook, and deploy Nginx on an EC2 instance.
+### Launch EC2 and Connect via SSH
+
+1. Launch an Amazon EC2 instance running Amazon Linux 2023.
+2. Connect to the instance using SSH.
+
+### Step 1: Update the System
+
+Ensure that all system packages are up-to-date with the latest updates and security patches:
+
+```bash
+sudo yum update -y
+```
+
+To clone the repository from GitHub, follow these instructions:
+
+### Cloning the Repository
+
+1. **Ensure Git is installed on your system.** If not, install it using the following command:
+   
+   For Amazon Linux 2023:
+   ```bash
+   sudo yum install git -y
+   ```
+
+2. **Clone the repository using Git.** Open your terminal and run the following command:
+
+   ```bash
+   git clone https://github.com/atulkamble/project.git
+   ```
+
+3. **Navigate into the cloned repository directory:**
+
+   ```bash
+   cd project
+   ```
+
+
+### Step 2: Download and Install Chef Workstation
+
+Chef Workstation is a suite of tools for managing infrastructure and executing Chef recipes.
+
+1. **Download the Chef Workstation package:**
+
+    ```bash
+    wget https://packages.chef.io/files/stable/chef-workstation/24.4.1064/el/8/chef-workstation-24.4.1064-1.el8.x86_64.rpm
+    ```
+
+2. **Install the downloaded package:**
+
+    ```bash
+    sudo rpm -Uvh chef-workstation-24.4.1064-1.el8.x86_64.rpm
+    ```
+
+### Step 3: Verify the Installation
+
+Confirm that Chef Workstation is installed correctly by checking the version:
+
+```bash
+chef --version
+```
+
+### Troubleshooting
+
+If you encounter the error `/opt/chef-workstation/embedded/bin/ruby: error while loading shared libraries: libcrypt.so.1: cannot open shared object file: No such file or directory`, resolve it by installing the necessary compatibility library:
+
+```bash
+sudo yum install libxcrypt-compat -y
+```
+
+### Step 4: Set Up a Chef Repository
+
 
 #### 1. Create Project Folder
 
 Initialize a new Chef repository with the following command:
 ```bash
-chef generate repo myproject
+chef generate repo project
 ```
 
 Navigate to the project directory:
 ```bash
-cd myproject
+cd project
 ```
 
 Change to the cookbooks directory:
@@ -24,7 +93,6 @@ Change to the cookbooks directory:
 cd cookbooks/
 cd ..
 ```
-
 
 ### Configure Knife Credentials for Amazon Linux 2023
 
