@@ -151,6 +151,18 @@ To delete a cookbook from your Chef server, you need to use the `knife` command-
 - **Roles and Environments**: If the cookbook is assigned to any roles or environments, you may need to update those roles and environments to remove references to the cookbook before it can be fully removed from the server.
 
 By following these steps, you can cleanly remove a cookbook from your Chef server and ensure it is no longer available for use in your Chef configurations.
+
+### Configure Keypair 
+cd /etc/chef/
+touch client.pem
+sudo touch client.pem
+sudo nano client.pem 
+
+// paste keypair algo code
+
+// change key accesible via changin permissions
+sudo chmod 400 client.pem
+
 ### Summary
 
 This guide covers creating an Apache2 cookbook, managing configurations, and setting up Apache2 on a Chef server. Adjust configurations and templates based on your specific needs and environment.
