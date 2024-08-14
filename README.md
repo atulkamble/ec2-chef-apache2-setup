@@ -53,31 +53,6 @@ file '/var/www/html/index.html' do
   action :create
 end
 ```
-OR
-```
-# Install Apache2 package
-package 'apache2' do
-  action :install
-end
-
-# Ensure Apache2 service is enabled and running
-service 'apache2' do
-  action [:enable, :start]
-end
-
-# Create a basic index.html page
-file '/var/www/html/index.html' do
-  content '<html>
-             <head>
-               <title>Welcome to Apache2</title>
-             </head>
-             <body>
-               <h1>Apache2 is working!</h1>
-             </body>
-           </html>'
-  action :create
-end
-```
 
 #### Add Apache2 Configuration Template
 
