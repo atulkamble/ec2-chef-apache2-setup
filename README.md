@@ -61,7 +61,6 @@ To customize Apache2 configurations, you can use templates. Create a template fi
 For example, create a configuration template `apache2.conf.erb`:
 ```erb
 # Template for Apache2 configuration
-
 ServerAdmin webmaster@localhost
 DocumentRoot /var/www/html
 
